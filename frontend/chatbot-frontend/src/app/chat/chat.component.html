@@ -1,0 +1,31 @@
+<div class="chat-container">
+  <div class="chat-header">Chat-BOCS</div>
+  <div class="messages">
+    <div *ngFor="let msg of messages" class="message-row" [ngClass]="msg.from">
+      <div class="avatar">
+        <img *ngIf="msg.from === 'user'" src="/user-avatar.png" alt="Moi" />
+        <img *ngIf="msg.from === 'bot'" src="/bot-avatar.png" alt="Bot" />
+      </div>
+      <div class="bubble">
+        <markdown [data]="msg.text"></markdown>
+      </div>
+    </div>
+    <div *ngIf="loading" class="loader">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="loader-text">Réfléchit...</span>
+    </div>
+  </div>
+  <form class="input-area" (ngSubmit)="sendMessage()">
+    <input
+      type="text"
+      [(ngModel)]="question"
+      name="question"
+      placeholder="Écrivez votre message..."
+      autocomplete="off"
+      [disabled]="loading"
+    />
+    <button type="submit" [disabled]="loading">Envoyer</button> 
+  </form>
+</div>
