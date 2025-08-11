@@ -83,12 +83,13 @@ agent = Agent(
         knowledge=knowledge_base,
         search_knowledge=True, 
         debug_mode=False,
-        description = (
+        description = """ 
             "Agent du Pôle Suivi & Évaluation spécialisé dans les textes officiels "
             "(décrets, arrêtés, lois, rapports). Il interroge uniquement la base de "
             "connaissances vectorisée issue des PDF stockés dans MinIO, et répond de "
             "façon claire, sourcée et concise."  
-        ),
+            """
+        ,
 
         instructions = [
             # Périmètre & sources
@@ -123,7 +124,7 @@ agent = Agent(
 
       storage=storage,
       add_history_to_messages=True,
-      memory=memory        knowledge=knowledge_base,
+      memory=memory,
         search_knowledge=True, 
         debug_mode=False,
       )
