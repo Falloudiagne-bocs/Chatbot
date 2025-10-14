@@ -1,0 +1,6 @@
+streamlit>=1.37.0
+python-dotenv
+agno
+lancedb
+fastembed
+groq
